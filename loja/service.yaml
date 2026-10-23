@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: loja
+  labels:
+    app: loja
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Cluster
+  selector:
+    app: loja
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

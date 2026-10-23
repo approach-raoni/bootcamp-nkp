@@ -1,0 +1,21 @@
+# EXEMPLO DOCUMENTAL: nao aplicar sem revisar com a equipe de rede.
+# Descobrir o namespace real do MetalLB e usar IPs livres RESERVADOS.
+# O bloco 192.0.2.0/24 e documental; substituir pelo pool real.
+# Se o NKP ja gerencia um pool funcional, reutilize-o.
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: bootcamp
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.0.2.240-192.0.2.250
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: bootcamp
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+    - bootcamp

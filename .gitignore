@@ -1,0 +1,9 @@
+gerados/
+__pycache__/
+*.pyc
+*.pptx
+*.docx
+*.pdf
+*.zip
+*kubeconfig*
+.env
